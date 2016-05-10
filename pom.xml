@@ -13,6 +13,7 @@
         <module>utils</module>
         <module>patterns</module>
         <module>algoritms</module>
+        <module>code-examples</module>
     </modules>
 
     <build>
