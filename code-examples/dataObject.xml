@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataObject>
+    <count>14</count>
+    <name>aarexer</name>
+    <secretString>secret</secretString>
+    <hobbies>
+        <hobby>Football</hobby>
+        <hobby>Ping-Pong</hobby>
+        <hobby>Bicycle</hobby>
+    </hobbies>
+</dataObject>
