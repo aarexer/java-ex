@@ -6,3 +6,5 @@ In source - code examples.
 
 Some of this examples are very simple, but it's just example for theory.
 
+## Wiki
+[Home](https://github.com/aarexer/java-ex/wiki)
