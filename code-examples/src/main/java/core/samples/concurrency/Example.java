@@ -7,8 +7,8 @@ import java.util.Timer;
  * For example - just call methods
  */
 public class Example {
-    public static void main(String[] args) {
-        startThreadByTimer();
+    public static void main(String[] args) throws InterruptedException {
+        joinExample();
     }
 
     //work with two threads
@@ -37,6 +37,15 @@ public class Example {
     }
 
     static void startThreadByTimer() {
-        new Timer().schedule(new TimerTaskExample("TimerThread", 2), 60 * 1000);
+        new Timer().schedule(new TimerTaskExample("TimerThread", 2), 60);
+    }
+
+    static void joinExample() throws InterruptedException {
+        ThreadExample te1 = new ThreadExample("My thread", 1);
+        ThreadExample te2 = new ThreadExample("My thread 2", 2);
+        te1.start();
+        te1.join();
+        System.out.println("Main thread!");
+        te2.start();
     }
 }
