@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
  * For example - just call methods
  */
 public class Example {
-    public static void main(String[] args) throws InterruptedException {
-        wrongInterrupted();
+    public static void main(String[] args) throws Exception {
+        exampleOfLockIncrement();
     }
 
     //work with two threads
@@ -89,5 +89,47 @@ public class Example {
         Thread tr = new ThreadInterruptWhileSleep();
         tr.start();
         tr.interrupt();
+    }
+
+    //Shows us the number of cpu cores
+    static void numberOfCoresExample() {
+        new ThreadPoolExample().exampleOfCores();
+    }
+
+    //Example of ThreadPool
+    static void exampleOfThreadExecutor() {
+        new ThreadPoolExample().exampleOfTasks();
+    }
+
+    //Example Future
+    static void exampleOfFuture() throws Exception {
+        new ThreadPoolExample().exampleOfFuture();
+    }
+
+    //Not atomic increment
+    static void exampleOfNotAtomicIncrement() {
+        try {
+            new SyncExample().exampleOfIncrementNotAtomic();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //atomic increment
+    static void exampleOfAtomicIncrement() {
+        try {
+            new SyncExample().exampleOfIncrementAtomic();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //lock increment
+    static void exampleOfLockIncrement() {
+        try {
+            new SyncExample().exampleOfIncrementWithLock();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
