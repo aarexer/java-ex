@@ -1,6 +1,8 @@
 package patterns.builder;
 
-
+/**
+ * Builder pattern
+ */
 public class TelephoneBuilderPattern {
     private int serialnumber;
     private String name;

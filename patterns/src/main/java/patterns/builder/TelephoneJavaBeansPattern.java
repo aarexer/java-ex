@@ -1,7 +1,7 @@
 package patterns.builder;
 
 /**
- * Created by rexer on 03.07.16.
+ * Example of class wit Java beans pattern
  */
 public class TelephoneJavaBeansPattern {
     private int serialnumber;

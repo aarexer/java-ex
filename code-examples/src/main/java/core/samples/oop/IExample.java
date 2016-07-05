@@ -8,6 +8,9 @@ public class IExample {
     }
 }
 
+/**
+ * Example of encapsulation
+ */
 class Person {
     private int age;
     private String name;
@@ -20,6 +23,9 @@ class Person {
         return name;
     }
 
+    /**
+     * We can't set age less zero.
+     */
     public void setAge(int age) {
         if (age < 0) throw new IllegalArgumentException("Age can't be less then zero");
         this.age = age;

@@ -2,6 +2,9 @@ package patterns.factory;
 
 import patterns.factory.devices.*;
 
+/**
+ * Example of factory pattern
+ */
 public class ComputerFactory {
     public Computer getComputer(ComputerType type) {
         Computer computer = null;

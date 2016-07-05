@@ -1,7 +1,7 @@
 package patterns.builder;
 
 /**
- * Created by rexer on 03.07.16.
+ * Builder pattern standard
  */
 public class TelephoneBuilderPattern2 {
     private final int serialnumber;

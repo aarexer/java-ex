@@ -1,5 +1,8 @@
 package patterns.builder;
 
+/**
+ * Example of class with telescoping constructor
+ */
 public class TelephoneTelescopingPattern {
     private int serialnumber;
     private String name;
