@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/algoritms/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/how-2/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/how-2/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

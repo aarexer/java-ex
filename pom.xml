@@ -14,6 +14,7 @@
         <module>patterns</module>
         <module>algoritms</module>
         <module>code-examples</module>
+        <module>spring-tutorial</module>
     </modules>
 
     <build>
