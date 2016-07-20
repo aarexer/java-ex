@@ -7,10 +7,11 @@ public class OverridingExamples {
     }
 
 
+    //// FIXME: move to tests
     static void personEquals() {
-        Person person1 = new Person(25, 8987, "Person_One");
-        Person person2 = new Person(23, 8987, "Person_TWo");
-        Person person3 = new Person(25, 8987, "Person_One");
+        Person person1 = new Person(25, 8987, "Person_One", 4.2, new CarKey(1, "RED"));
+        Person person2 = new Person(23, 8987, "Person_TWo", 4.1, new CarKey(1, "GREEN"));
+        Person person3 = new Person(25, 8987, "Person_One", 4.2, new CarKey(1, "RED"));
         Person person4 = null;
 
         //different objects with different fields
