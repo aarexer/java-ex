@@ -52,6 +52,13 @@ public class Person {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return String
+                .format("Person name: %s, age: %d, number: %s, salary: %4.2f, carKey: %s",
+                        name, age, number, salary, carKey);
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
