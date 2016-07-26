@@ -39,6 +39,19 @@ public class Person {
         return true;
     }
 
+    @Override
+    public int hashCode() {
+        int result = 31;
+        result = result * 17 + age;
+        result = result * 17 + number;
+        long lnum = Double.doubleToLongBits(number);
+        result = result * 17 + (int)(lnum ^ (lnum >>> 32));
+        result = result * 17 + name.hashCode();
+        result = result * 17 + carKey.hashCode();
+
+        return result;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
