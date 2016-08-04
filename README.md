@@ -10,6 +10,7 @@
      * [Стиль написания кода](https://github.com/aarexer/java-ex/wiki/Code-style)
      * [Использование static модификатора](https://github.com/aarexer/java-ex/wiki/Static)
      * [Использование классов для статики](https://github.com/aarexer/java-ex/wiki/Classes-for-static)
+     * [Работа с resources](https://github.com/aarexer/java-ex/wiki/Resources)
      * [Дублирование объектов и возможные ошибки](https://github.com/aarexer/java-ex/wiki/Duplicate-objects)
      * [SOLID](https://github.com/aarexer/java-ex/wiki/SOLID)
 1. ООП
