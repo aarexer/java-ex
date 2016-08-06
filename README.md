@@ -12,6 +12,7 @@
      * [Использование классов для статики](https://github.com/aarexer/java-ex/wiki/Classes-for-static)
      * [Работа с resources](https://github.com/aarexer/java-ex/wiki/Resources)
      * [Дублирование объектов и возможные ошибки](https://github.com/aarexer/java-ex/wiki/Duplicate-objects)
+     * [Зачем нужны Collections.empty](https://github.com/aarexer/java-ex/wiki/Empty-in-Collections-and-Iterators)
      * [SOLID](https://github.com/aarexer/java-ex/wiki/SOLID)
 1. ООП
      * [Коротко о ООП](https://github.com/aarexer/java-ex/wiki/OOP)
