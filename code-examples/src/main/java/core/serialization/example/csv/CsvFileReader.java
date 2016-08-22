@@ -77,4 +77,16 @@ public class CsvFileReader {
             }
         }
     }
+
+    public static void writeCsvToFileAsRecord(String filename) {
+        CSVPrinter csvFilePrinter = null;
+        try (FileWriter fileWriter = new FileWriter(filename)) {
+            CSVFormat csvFileFormat = CSVFormat.DEFAULT.withRecordSeparator("\n");
+            csvFilePrinter = new CSVPrinter(fileWriter, csvFileFormat);
+
+            csvFilePrinter.printRecord(14, "Name_Of", "Surname_Of", 25);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
