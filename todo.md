@@ -9,4 +9,5 @@
 * Article about Collections
 * Article about charsets
 * Apache Commons IOUtils
-* NIO
+* NIO(code in code-examples)
+* Split Serialization article and rewrite it
