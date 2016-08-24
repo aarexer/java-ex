@@ -11,3 +11,5 @@
 * Apache Commons IOUtils
 * NIO(code in code-examples)
 * Split Serialization article and rewrite it
+* Wrapping checked exception into RE
+* Article about logging
