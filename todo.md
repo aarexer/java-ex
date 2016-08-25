@@ -17,3 +17,4 @@
 * Diff between constructor and method(return type of constructor)
 * class A extends B, and both classes have static method, which method we invoke?
 * interfaces in java 8 - static and default, two interfaces with same method as default - is it normal?
+* Future and etc in concurrency
