@@ -1,7 +1,7 @@
 ### TODO List
-* Article about properties 
+* Article about properties
 * Resources
- 
+
   ```
   https://github.com/aarexer/java-ex/wiki/Resources
   Разобраться почему когда в корне модуля делаешь(не в src/main) - то надо как-то по-другому добираться до ресурса
@@ -18,3 +18,4 @@
 * class A extends B, and both classes have static method, which method we invoke?
 * interfaces in java 8 - static and default, two interfaces with same method as default - is it normal?
 * Future and etc in concurrency
+* Runtime.getRuntime.addShutdownHook(...)
