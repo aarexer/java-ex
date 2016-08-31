@@ -16,6 +16,7 @@
         <module>code-examples</module>
         <module>spring-tutorial</module>
         <module>crud-example</module>
+        <module>solved-tasks</module>
     </modules>
 
     <build>
