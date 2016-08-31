@@ -31,9 +31,9 @@ return 14;
 Также, если необходимо и ваш объект - неизменяемый, то hashCode можно закешировать.
 
 
-Пример переопределения hashCode: [Example of overriding](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/CarKey.java#L31-L40)
+Пример переопределения hashCode: [Example of overriding](../../patterns/src/main/java/good/overriding/CarKey.java)
 
-Как советует Блох переопределять hashCode: [Example of overriding](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/Person.java#L42-L53)
+Как советует Блох переопределять hashCode: [Example of overriding](../../patterns/src/main/java/good/overriding/Person.java)
 
 Правила Блоха:
 * Присваиваем переменной result ненулевое значение.

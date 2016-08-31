@@ -37,4 +37,4 @@ public boolean equals( MyClass obj){}
 ```
 Этот метод не переопределяет equals у Object.
 
-[Example](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/Person.java)
+[Example](../../patterns/src/main/java/good/overriding/Person.java)

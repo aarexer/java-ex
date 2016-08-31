@@ -17,19 +17,19 @@ protected Object clone() throws CloneNotSupportedException
 Сам `Object` - это не реализует этот интерфейс.
 Почему? Потому, что не всем классам это надо. Не все классы обязательно должны уметь клонироваться. А реализовав интерфейс в `Object` мы бы потащили его везде.
 
-[Clone example](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/clone/PersonToClone.java#L23-L26)
+[Clone example](../../patterns/src/main/java/good/overriding/clone/PersonToClone.java)
 
 Однако, как мы помним, если поля класса содержат ссылки на изменяемые объекты, то при клонировании будет скопирована именно ссылка, а значит, изменив такое поле в клоне объекта - мы измени его и в оригинальном!
 
 А это может иметь печальные последствия.
 
-[Example of wrong work](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/clone/CloneExample.java#L28-L44)
+[Example of wrong work](../../patterns/src/main/java/good/overriding/clone/CloneExample.java)
 
 ### Как такого избежать?
 Избежать можно вот как: воспользоваться конструктором копирования.
 Т.е сначала вызвать `clone` супер класса, а после уже работать с такими опасными полями.
 
-[Example of clone](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/clone/PersonToCloneBetter.java#L14-L20)
+[Example of clone](../../patterns/src/main/java/good/overriding/clone/PersonToCloneBetter.java)
 
 Отметим, что клонирование таким способом **НЕ** работает, если поле помечено как `final`.
 
@@ -41,4 +41,4 @@ protected Object clone() throws CloneNotSupportedException
 
 Этот вариант является гораздо более предпочтительным.
 
-[Static method for clone](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/overriding/clone/PersonToClone.java#L28-L30)
+[Static method for clone](../../patterns/src/main/java/good/overriding/clone/PersonToClone.java)

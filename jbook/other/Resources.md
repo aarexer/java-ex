@@ -36,7 +36,7 @@ Example.class.getResource("test.txt")
 Где classpath - это ваш заданный classpath.
 
 Два примера использования:
-[Resources example](https://github.com/aarexer/java-ex/blob/master/code-examples/src/main/java/examples/res/ResourceExample.java)
+[Resources example](../../code-examples/src/main/java/examples/res/ResourceExample.java)
 
 //todo issue
 
