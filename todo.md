@@ -20,3 +20,4 @@
 * Future and etc in concurrency
 * Runtime.getRuntime.addShutdownHook(...)
 * classpath
+* Objects.equals and Objects class from java 7.
