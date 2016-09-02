@@ -21,3 +21,15 @@
 * Runtime.getRuntime.addShutdownHook(...)
 * classpath
 * Objects.equals and Objects class from java 7.
+* System.exit(res ? 0 : 1);
+* order of class initializing
+* в блоке инициализации можно пользоваться не только публичным API, но и protected
+```
+        Map<String, String> a = new HashMap<String, String>(){{
+
+            put("a", "A");
+
+            put("b", "B");
+
+        }};
+```

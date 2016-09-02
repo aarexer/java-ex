@@ -1,31 +1,31 @@
-package core.nio;
+package utils.filesystem;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public class DirectoryWathcer {
+public class DirectoryWatcher implements Runnable {
     private Path directory;
     private DirectoryStream.Filter<Path> dirFilter;
     private final Set<String> ignore = new HashSet<>();
     private WatchService watchService;
 
-    public DirectoryWathcer(String dir) {
+    public DirectoryWatcher(String dir) {
         this.directory = Paths.get(dir);
         if (!Files.isDirectory(directory))
             throw new IllegalArgumentException("Can't initialize watcher service on file: " + dir);
 
-        initWatchService();
         dirFilter = entry -> !ignore.contains(entry.getFileName().toString());
     }
 
-    public DirectoryWathcer(String dir, DirectoryStream.Filter<Path> dirFilter) {
+    public DirectoryWatcher(String dir, DirectoryStream.Filter<Path> dirFilter) {
         this.directory = Paths.get(dir);
         if (!Files.isDirectory(directory))
             throw new IllegalArgumentException("Can't initialize watcher service on file: " + dir);
 
-        initWatchService();
         this.dirFilter = dirFilter;
     }
 
@@ -33,16 +33,35 @@ public class DirectoryWathcer {
         try {
             watchService = directory.getFileSystem().newWatchService();
             directory.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
+            new Thread(this::startMonitoring).start();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void run() {
+        while (!Thread.currentThread().isInterrupted()) {
+            //some work
+        }
+    }
+
+    private List<String> fileList() {
+        List<String> fileNames = new ArrayList<>();
+        try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(directory, dirFilter)) {
+            for (Path path : directoryStream) {
+                fileNames.add(path.toString());
+            }
+        } catch (IOException ignored) {
+        }
+        return fileNames;
     }
 
     public boolean addIgnoreName(String name) {
         return ignore.add(name);
     }
 
-    public void startMonitoring() {
+    private void startMonitoring() {
         while (true) {
             try {
                 WatchKey key = watchService.take();
