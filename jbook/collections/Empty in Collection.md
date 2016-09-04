@@ -11,17 +11,17 @@ private List<String> names;
 Именно для такого случая в Java, в классе `Collections` есть специальные неизменяемые пустые коллекции.
 
 #### Empty Collections
-Для примера рассмотрим вот такой код: [Example](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/collections/empty/PersonNames.java)
+Для примера рассмотрим вот такой код: [Example](../../patterns/src/main/java/good/collections/empty/PersonNames.java)
 
 Пользуясь таким способом мы можем избежать нежелательных NPE.
 
 При этом надо понимать, что вы можете создать объект и присвоить ссылке прямо при объявлении, но данный способ дает вам гибкость в выборе реализации(в разных конструкторах можно использовать разные реализации List), позволяет, при необходимости, рассчитать `capacity` для коллекции, в зависимости от количества добавляемых элементов. Плюс вы можете вернуть всегда безбоязненно итератор на такую коллекцию.
 
-[Showing example ](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/collections/empty/CollectionExample.java)
+[Showing example ](../../patterns/src/main/java/good/collections/empty/CollectionExample.java)
 
 #### Empty Iterators
 Но пусть вы используете другой подход.
-[Example](https://github.com/aarexer/java-ex/blob/master/patterns/src/main/java/good/collections/empty/PersonNamesIterator.java)
+[Example](../../patterns/src/main/java/good/collections/empty/PersonNamesIterator.java)
 
 Тогда, если вы возвращаете итератор - вы должны проверить, а есть ли объект по ссылке вашей, на коллекцию?
 Потому что, если нет - NPE ждет вас.
