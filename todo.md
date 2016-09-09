@@ -33,3 +33,21 @@
 
         }};
 ```
+* article enum
+* в тредах и лямбдах можно использовать только final
+```
+final int[] i = {0};
+            csvParser.iterator().forEachRemaining(record -> {
+                    final int numOfRecord = i[0]++;
+                    Optional<ProducerRecord<K, SpecificRecord>> prec = createProducerRecord(record, numOfRecord);
+                    if (prec.isPresent()) {
+                        logger.trace("Sending record: {}", prec.get());
+                        producer.send(prec.get());
+                    }
+                    if (i[0] % 100000 == 1) {
+                        logger.info("File {} processed {} rows by {} milliseconds.", filename, i[0], System.currentTimeMillis() - start);
+                    }
+            });
+```
+* Продюсер фактори в проект в утилы
+* 
