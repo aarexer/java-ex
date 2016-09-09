@@ -34,7 +34,7 @@
         }};
 ```
 * article enum
-* в тредах и лямбдах можно использовать только final
+* в тредах и лямбдах можно использовать только final, замыкания
 ```
 final int[] i = {0};
             csvParser.iterator().forEachRemaining(record -> {
