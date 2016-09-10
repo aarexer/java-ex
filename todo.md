@@ -50,4 +50,4 @@ final int[] i = {0};
             });
 ```
 * Продюсер фактори в проект в утилы
-* I/O, Steam-ы и BufferedReader-ы
+* I/O, Steam-ы и BufferedReader-ы, Reader-ы
