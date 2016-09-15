@@ -9,7 +9,7 @@
 Надо понимать, что он парсит по некоему паттерну, который вы передаете в конструктор класса.
 Что можно передавать:
 
-Letter  Date or Time Component  Presentation        Examples
+Letter | Date or Time Component | Presentation       |  Examples
 ------ | ---------------------- | ------------------ | -------------------------------------
 G      | Era designator         | Text               | AD
 y      | Year                   | Year               | 1996; 96
