@@ -21,3 +21,10 @@ build plugin
                     </configuration>
                 </plugin>
 ```
+
+
+
+
+//todo
+Пропустить тесты
+`clean install -Dmaven.test.skip`
