@@ -46,7 +46,7 @@ public class CSVFileGenerator {
         final List<String> record = new LinkedList<>();
 
         for (int i = 0; i < lengthOfRecord; i++) {
-            record.add(String.valueOf(random.nextInt(1024)));
+            record.add(String.valueOf(random.nextLong()));
         }
 
         return record;
