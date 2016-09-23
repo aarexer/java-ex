@@ -1,4 +1,4 @@
-package compare.parsers.csv;
+package compare.parsers.csv.parsers;
 
 import java.io.IOException;
 

@@ -1,5 +1,7 @@
-package compare.parsers.csv;
+package compare.parsers.csv.parsers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.supercsv.io.CsvListReader;
 import org.supercsv.io.ICsvListReader;
 import org.supercsv.prefs.CsvPreference;
@@ -11,7 +13,10 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import static java.lang.Double.NaN;
+
 public class SuperCSVParser implements ParseLineByLine {
+    private static Logger LOGGER = LogManager.getLogger();
     private FileReader fileReader;
 
     public SuperCSVParser(String filename) {
@@ -35,7 +40,12 @@ public class SuperCSVParser implements ParseLineByLine {
 
         listReader.close();
 
-        return System.currentTimeMillis() - start;
+        long stopParsingFileTime = System.currentTimeMillis() - start;
+
+        times.sort(Long::compareTo);
+        LOGGER.info("Lines: median: {}, average {}", times.get(times.size() / 2), times.stream().mapToLong(Long::longValue).average().orElse(NaN));
+
+        return stopParsingFileTime;
     }
 
     @Override

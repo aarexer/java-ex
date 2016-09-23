@@ -6,18 +6,66 @@ import utils.generators.CSVFileGenerator;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-
-import static java.lang.Double.NaN;
 
 public class Examples {
     private static Logger LOGGER = LogManager.getLogger();
     private static String name = "TEST.csv";
     private static int SIZE_OF_BUFFER = 31457280;
+    private static Integer[] columns = {10, 50, 100, 300};
 
     public static void main(String[] args) throws Exception {
-        openCSVTestTimeLineByLineParsing(10, 1000);
+        testOpenCSV();
+        testSuperCSV();
+        testApacheCommonsCSV();
+    }
+
+    private static void testApacheCommonsCSV() throws IOException {
+        LOGGER.info("-------------------------SUPER CSV---------------------------");
+        ApacheCommonsCSVTests test = new ApacheCommonsCSVTests(name);
+        for (Integer column : columns) {
+            for (int rows = 10; rows < 1_000_000; rows *= 10) {
+                createFile(column, rows);
+                LOGGER.info("---------------------Line By Line-----------------------------");
+                test.apacheCSVTestTimeLineByLineParsing();
+                LOGGER.info("---------------------Line By Line With Buffer-----------------");
+                test.apacheCSVTestTimeLineByLineWithBufferParsing();
+//                LOGGER.info("--------------------All In List------------------------------");
+//                test.apacheParseAll();
+                LOGGER.info("-----------------------------------------------------------------");
+            }
+        }
+    }
+
+    private static void testSuperCSV() throws IOException {
+        LOGGER.info("-------------------------SUPER CSV---------------------------");
+        SuperCSVTests test = new SuperCSVTests(name);
+        for (Integer column : columns) {
+            for (int rows = 10; rows < 1_000_000; rows *= 10) {
+                createFile(column, rows);
+                LOGGER.info("---------------------Line By Line-----------------------------");
+                test.superCSVTestTimeLineByLineParsing();
+                LOGGER.info("---------------------Line By Line With Buffer-----------------");
+                test.superCSVTestTimeLineByLineWithBufferParsing();
+                LOGGER.info("-----------------------------------------------------------------");
+            }
+        }
+    }
+
+    private static void testOpenCSV() throws IOException {
+        LOGGER.info("-------------------------OPEN CSV---------------------------");
+        OpenCSVTests test = new OpenCSVTests(name);
+        for (Integer column : columns) {
+            for (int rows = 10; rows < 1_000_000; rows *= 10) {
+                createFile(column, rows);
+                LOGGER.info("---------------------Line By Line-----------------------------");
+                test.openCSVTestTimeLineByLineParsing();
+                LOGGER.info("---------------------Line By Line With Buffer-----------------");
+                test.openCSVTestTimeLineByLineWithBufferParsing();
+//                LOGGER.info("--------------------All In List------------------------------");
+//                test.openCSVTestTimeAllInList();
+                LOGGER.info("-----------------------------------------------------------------");
+            }
+        }
     }
 
     private static void createFile(int columns, int rows) {
@@ -35,18 +83,5 @@ public class Examples {
         } else {
             LOGGER.info("File size is {} bytes", sizeInBytes);
         }
-    }
-
-    private static void openCSVTestTimeLineByLineParsing(int columns, int rows) throws IOException {
-        createFile(columns, rows);
-        List<Long> times = new LinkedList<>();
-
-        long attempt = 0;
-        while (attempt <= 200_000) {
-            times.add(new OpenCSVParser(name).parseLineByLine());
-            attempt++;
-        }
-
-        LOGGER.info("Median: {} mills, average: {} mills", times.get(times.size() / 2), times.stream().mapToLong(Long::longValue).average().orElse(NaN));
     }
 }

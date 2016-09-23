@@ -1,4 +1,4 @@
-package compare.parsers.csv;
+package compare.parsers.csv.parsers;
 
 import au.com.bytecode.opencsv.CSVReader;
 import org.apache.logging.log4j.LogManager;
@@ -10,6 +10,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+
+import static java.lang.Double.NaN;
 
 /**
  * Последняя версия библиотеки датирована июлем 2011 года.
@@ -31,17 +33,23 @@ public class OpenCSVParser implements ParseLineByLine {
 
         List<Long> times = new LinkedList<>();
         long start = System.currentTimeMillis();
-        long startTmp = start;
+        long startTmp = System.nanoTime();
 
         while ((nextLine = reader.readNext()) != null) {
             //do smth with data - filtering and etc
             //some work - for example adding times to list
-            times.add(System.currentTimeMillis() - startTmp);
-            startTmp = System.currentTimeMillis();
+            times.add(System.nanoTime() - startTmp);
+            startTmp = System.nanoTime();
         }
 
         reader.close();
-        return System.currentTimeMillis() - start;
+
+        long stopParsingFileTime = System.currentTimeMillis() - start;
+
+        times.sort(Long::compareTo);
+        LOGGER.info("Lines: median: {} nanosecs, average {} nanosecs", times.get(times.size() / 2), times.stream().mapToLong(Long::longValue).average().orElse(NaN));
+
+        return stopParsingFileTime;
     }
 
     @Override
@@ -58,13 +66,14 @@ public class OpenCSVParser implements ParseLineByLine {
         return parseFileByLine(reader);
     }
 
-    public void parseFileAsList() throws IOException {
-        CSVReader reader = new CSVReader(new BufferedReader(fileReader), ',', '"', 0);
+    public long parseFileAsList(int bufferSize) throws IOException {
+        CSVReader reader = new CSVReader(new BufferedReader(fileReader, bufferSize), ',', '"', 0);
 
         long start = System.currentTimeMillis();
         List<String[]> records = reader.readAll();
 
-        LOGGER.info("File parsed by: {}", System.currentTimeMillis() - start);
         reader.close();
+
+        return System.currentTimeMillis() - start;
     }
 }

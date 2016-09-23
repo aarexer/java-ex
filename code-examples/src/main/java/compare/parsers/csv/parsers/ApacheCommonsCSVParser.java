@@ -1,4 +1,4 @@
-package compare.parsers.csv;
+package compare.parsers.csv.parsers;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -65,6 +65,9 @@ public class ApacheCommonsCSVParser implements ParseLineByLine {
         CSVParser csvParser = new CSVParser(bufferedReader, CSVFormat.DEFAULT.withDelimiter(','));
         long start = System.currentTimeMillis();
         List<CSVRecord> records = csvParser.getRecords();
+
+        bufferedReader.close();
+        csvParser.close();
 
         return System.currentTimeMillis() - start;
     }
