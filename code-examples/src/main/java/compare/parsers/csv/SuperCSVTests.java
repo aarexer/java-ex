@@ -10,7 +10,7 @@ import java.util.List;
 
 import static java.lang.Double.NaN;
 
-public class SuperCSVTests {
+public class SuperCSVTests implements ParserTesting {
     private static Logger LOGGER = LogManager.getLogger();
     private String name;
     private final int iterationCount = 50;
@@ -19,8 +19,8 @@ public class SuperCSVTests {
         this.name = name;
     }
 
-    public void superCSVTestTimeLineByLineParsing() throws IOException {
-
+    @Override
+    public void parseLineByLineWithoutBuffer() throws IOException {
         List<Long> times = new LinkedList<>();
 
         long attempt = 0;
@@ -32,7 +32,8 @@ public class SuperCSVTests {
         LOGGER.info("File: Median: {} mills, average: {} mills", times.get(times.size() / 2), times.stream().mapToLong(Long::longValue).average().orElse(NaN));
     }
 
-    public void superCSVTestTimeLineByLineWithBufferParsing() throws IOException {
+    @Override
+    public void parseLineByLineWithBuffer() throws IOException {
         List<Long> times = new LinkedList<>();
         int SIZE_OF_BUFFER = 8192;
 
