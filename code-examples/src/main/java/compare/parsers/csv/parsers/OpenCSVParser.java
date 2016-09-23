@@ -42,12 +42,12 @@ public class OpenCSVParser implements ParseLineByLine {
             startTmp = System.nanoTime();
         }
 
-        reader.close();
-
         long stopParsingFileTime = System.currentTimeMillis() - start;
 
         times.sort(Long::compareTo);
         LOGGER.info("Lines: median: {} nanosecs, average {} nanosecs", times.get(times.size() / 2), times.stream().mapToLong(Long::longValue).average().orElse(NaN));
+
+        reader.close();
 
         return stopParsingFileTime;
     }

@@ -31,19 +31,19 @@ public class SuperCSVParser implements ParseLineByLine {
         List<String> customerList;
         List<Long> times = new LinkedList<>();
         long start = System.currentTimeMillis();
-        long startTmp = start;
+        long startTmp = System.nanoTime();
 
         while ((customerList = listReader.read()) != null) {
-            times.add(System.currentTimeMillis() - startTmp);
-            startTmp = System.currentTimeMillis();
+            times.add(System.nanoTime() - startTmp);
+            startTmp = System.nanoTime();
         }
-
-        listReader.close();
 
         long stopParsingFileTime = System.currentTimeMillis() - start;
 
         times.sort(Long::compareTo);
         LOGGER.info("Lines: median: {}, average {}", times.get(times.size() / 2), times.stream().mapToLong(Long::longValue).average().orElse(NaN));
+
+        listReader.close();
 
         return stopParsingFileTime;
     }
