@@ -46,13 +46,12 @@ public class ApacheCommonsCSVTests implements ParserTesting {
     }
 
     @Override
-    public void parseLineByLineWithBuffer() throws IOException {
+    public void parseLineByLineWithBuffer(int bufferSize) throws IOException {
         List<Long> times = new LinkedList<>();
-        int SIZE_OF_BUFFER = 8192;
 
         long attempt = 0;
         while (attempt <= iterationCount) {
-            times.add(new ApacheCommonsCSVParser(name).parseLineByLineWithBuffer(SIZE_OF_BUFFER));
+            times.add(new ApacheCommonsCSVParser(name).parseLineByLineWithBuffer(bufferSize));
             attempt++;
         }
 

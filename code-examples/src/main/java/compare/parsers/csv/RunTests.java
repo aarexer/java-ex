@@ -10,13 +10,32 @@ import java.io.IOException;
 public class RunTests {
     private static Logger LOGGER = LogManager.getLogger();
     private static String name = "TEST.csv";
-    private static int SIZE_OF_BUFFER = 31457280;
     private static Integer[] columns = {10, 50, 100, 300};
 
     public static void main(String[] args) throws Exception {
         testOpenCSV();
         testSuperCSV();
         testApacheCommonsCSV();
+
+        testParsersWithBufferSize();
+    }
+
+    private static void testParsersWithBufferSize() throws IOException {
+        ApacheCommonsCSVTests apacheCommonsCSVTests = new ApacheCommonsCSVTests(name);
+        SuperCSVTests superCSVTests = new SuperCSVTests(name);
+        OpenCSVTests openCSVTests = new OpenCSVTests(name);
+
+        //1mb
+        int oneMbBuffer = 1048576;
+        LOGGER.info("Test with 1 mb buffer");
+        openCSVTests.parseLineByLineWithBuffer(oneMbBuffer);
+        superCSVTests.parseLineByLineWithBuffer(oneMbBuffer);
+        apacheCommonsCSVTests.parseLineByLineWithBuffer(oneMbBuffer);
+
+        LOGGER.info("Test with 4 mb buffer");
+        openCSVTests.parseLineByLineWithBuffer(oneMbBuffer * 4);
+        superCSVTests.parseLineByLineWithBuffer(oneMbBuffer * 4);
+        apacheCommonsCSVTests.parseLineByLineWithBuffer(oneMbBuffer * 4);
     }
 
     private static void testCSVParser(ParserTesting parser) throws IOException {
@@ -27,7 +46,8 @@ public class RunTests {
                 LOGGER.info("---------------------Line By Line-----------------------------");
                 parser.parseLineByLineWithoutBuffer();
                 LOGGER.info("---------------------Line By Line With Buffer-----------------");
-                parser.parseLineByLineWithBuffer();
+                //standard buffer size
+                parser.parseLineByLineWithBuffer(8192);
                 LOGGER.info("-----------------------------------------------------------------");
             }
         }
