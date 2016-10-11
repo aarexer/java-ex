@@ -20,7 +20,7 @@
 * Future and etc in concurrency
 * Runtime.getRuntime.addShutdownHook(...)
 * classpath
-* Objects.equals and Objects class from java 7.
+* Objects.equals Objects.hash and Objects class from java 7.
 * System.exit(res ? 0 : 1);
 * order of class initializing
 * в блоке инициализации можно пользоваться не только публичным API, но и protected
