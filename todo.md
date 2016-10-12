@@ -54,3 +54,4 @@ final int[] i = {0};
 * stax xml dom
 * Работа с json
 * https://habrahabr.ru/post/260773/
+* lombok
