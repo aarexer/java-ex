@@ -52,3 +52,5 @@ final int[] i = {0};
 * Продюсер фактори в проект в утилы
 * I/O, Steam-ы и BufferedReader-ы, Reader-ы
 * stax xml dom
+* Работа с json
+* https://habrahabr.ru/post/260773/
