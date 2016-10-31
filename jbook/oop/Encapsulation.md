@@ -36,6 +36,32 @@
 что в это поле кто-то запишет отрицательное значение, 
 а также мы не можем среагировать на такое поведение клиента, например, сообщив, что возраст не может быть меньше 0.
 
+```java
+/**
+ * Example of encapsulation
+ */
+class Person {
+    private int age;
+    private String name;
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * We can't set age less zero.
+     */
+    public void setAge(int age) {
+        if (age < 0) throw new IllegalArgumentException("Age can't be less then zero");
+        this.age = age;
+    }
+}
+```
+
 Однако, не надо думать, что public никогда не используется при объявлении полей класса - 
 `public` можно использовать с final-полями и неизменяемыми объектами. 
 
