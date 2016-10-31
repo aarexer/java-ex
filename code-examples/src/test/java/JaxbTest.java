@@ -1,5 +1,5 @@
-import core.serialization.example.jaxb.DataObject;
-import core.serialization.example.jaxb.JaxbParser;
+import samples.serialization.jaxb.DataObject;
+import samples.serialization.jaxb.JaxbParser;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.Before;
 import org.junit.Test;
