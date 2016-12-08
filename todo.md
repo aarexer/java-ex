@@ -54,3 +54,28 @@ final int[] i = {0};
 * Работа с json
 * https://habrahabr.ru/post/260773/
 * lombok
+* Patterns - Порождающие
+ * Abstract factory (Абстрактная фабрика)
+ * Builder (Строитель)
+ * Factory method (Фабричный метод)
+ * Prototype (Прототип)
+ * Singleton (Одиночка)
+* Структурные
+ * Adapter (Адаптер);
+ * Bridge (Мост);
+ * Composite (Компоновщик);
+ * Decorator (Декоратор);
+ * Facade (Фасад);
+ * Flyweight (Приспособленец);
+ * Proxy (Заместитель).
+* Поведенческие шаблоны
+ * Command (Команда);
+ * Interpreter (Интерпретатор);
+ * Iterator (Итератор);
+ * Mediator (Посредник);
+ * Memento (Хранитель);
+ * Observer (Наблюдатель);
+ * State (Состояние);
+ * Strategy (Стратегия);
+ * Template method (Шаблонный метод);
+ * Visitor (Посетитель).
