@@ -9,6 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0</version>
 
+    <developers>
+        <developer>Aleksandr Kuchuk</developer>
+    </developers>
+
     <modules>
         <module>utils</module>
         <module>patterns</module>
