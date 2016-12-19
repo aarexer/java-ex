@@ -14,9 +14,10 @@
     </developers>
 
     <modules>
-        <module>utils</module>
+        <module>utils-ex</module>
         <module>algorithms</module>
         <module>code-examples</module>
+        <module>tic-tac-toe-game</module>
     </modules>
 
     <build>
