@@ -15,10 +15,8 @@
 
     <modules>
         <module>utils</module>
-        <module>patterns</module>
-        <module>algoritms</module>
+        <module>algorithms</module>
         <module>code-examples</module>
-        <module>solved-tasks</module>
     </modules>
 
     <build>
