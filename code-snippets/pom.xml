@@ -10,7 +10,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>code-examples</artifactId>
+    <artifactId>code-snippets</artifactId>
     <version>1.0</version>
 
     <dependencies>

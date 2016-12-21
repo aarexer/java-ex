@@ -16,7 +16,7 @@
     <modules>
         <module>utils-ex</module>
         <module>algorithms</module>
-        <module>code-examples</module>
+        <module>code-snippets</module>
         <module>tic-tac-toe-game</module>
     </modules>
 
