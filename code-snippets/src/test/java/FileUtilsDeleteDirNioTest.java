@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 
 public class FileUtilsDeleteDirNioTest {
     private final static String dirname = "test";
@@ -108,16 +109,18 @@ public class FileUtilsDeleteDirNioTest {
         Assert.assertEquals(false, file.exists());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void deleteDirectoryWithoutWriteAccess() throws IOException {
         Assert.assertEquals(true, nonWriteDirectory.mkdir());
         Assert.assertEquals(true, nonWriteDirectory.exists());
         Assert.assertEquals(true, nonWriteDirectory.setWritable(false));
 
         FileUtils.delete(dirnameNonWriteAccess);
+
+        Assert.assertEquals(false, nonWriteDirectory.exists());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NoSuchFileException.class)
     public void deleteNonExistDirectory() throws IOException {
         final String dirname = "directory";
         final File nonExistDir = new File(dirname);

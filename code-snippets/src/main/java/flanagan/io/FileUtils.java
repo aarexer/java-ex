@@ -15,10 +15,6 @@ public class FileUtils {
             throw new IllegalArgumentException("Can't delete non existing file " + filename);
         }
 
-        if (!file.canWrite()) {
-            throw new IllegalArgumentException("Can't delete, cause access denied");
-        }
-
         if (file.isDirectory()) {
             String[] filesInDir = file.list();
             if (filesInDir == null) {

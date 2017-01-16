@@ -108,13 +108,15 @@ public class FileUtilsDeleteDirTest {
         Assert.assertEquals(false, file.exists());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void deleteDirectoryWithoutWriteAccess() {
         Assert.assertEquals(true, nonWriteDirectory.mkdir());
         Assert.assertEquals(true, nonWriteDirectory.exists());
         Assert.assertEquals(true, nonWriteDirectory.setWritable(false));
 
         FileUtils.delete(dirnameNonWriteAccess);
+
+        Assert.assertEquals(false, nonWriteDirectory.exists());
     }
 
     @Test(expected = IllegalArgumentException.class)
