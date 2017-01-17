@@ -3,23 +3,24 @@ package examples;
 import java.net.URISyntaxException;
 
 public class ResourcesTest {
-    public static void main(String[] args) {
-        new ResourcesTest().testRelPath();
+    public static void main(String[] args) throws URISyntaxException {
+        ResourcesTest resourcesTest = new ResourcesTest();
+        resourcesTest.printURIOfRelResource();
+        resourcesTest.printURIOfAbsResource();
+
+        //static
+        printURIOfResourceFromStatic();
     }
 
-    void testAbsPath() {
-        try {
-            System.out.println(this.getClass().getResource("/absPath.txt").toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+    private void printURIOfAbsResource() throws URISyntaxException {
+        System.out.println(getClass().getResource("/absPath.txt").toURI());
     }
 
-    void testRelPath() {
-        try {
-            System.out.println(this.getClass().getResource("relPath.txt").toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+    private void printURIOfRelResource() throws URISyntaxException {
+        System.out.println(getClass().getResource("relPath.txt").toURI());
+    }
+
+    private static void printURIOfResourceFromStatic() throws URISyntaxException {
+        System.out.println(ResourcesTest.class.getClassLoader().getResource("absPath.txt"));
     }
 }
