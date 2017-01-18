@@ -19,6 +19,7 @@
         <opencsv.version>2.3</opencsv.version>
         <supercsv.version>2.4.0</supercsv.version>
         <apache.commons.csv.version>1.4</apache.commons.csv.version>
+        <guava.version>21.0</guava.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,7 @@
             <artifactId>super-csv</artifactId>
             <version>${supercsv.version}</version>
         </dependency>
+        <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -54,11 +56,18 @@
             <artifactId>log4j-core</artifactId>
             <version>2.6.2</version>
         </dependency>
+        <!--Lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!--Guava-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.aarexer.java-ex</groupId>
