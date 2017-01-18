@@ -13,28 +13,36 @@
     <artifactId>code-snippets</artifactId>
     <version>1.0</version>
 
+    <properties>
+        <lombok.version>1.16.12</lombok.version>
+        <gson.version>2.6.2</gson.version>
+        <opencsv.version>2.3</opencsv.version>
+        <supercsv.version>2.4.0</supercsv.version>
+        <apache.commons.csv.version>1.4</apache.commons.csv.version>
+    </properties>
+
     <dependencies>
         <!--Parsers-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.6.2</version>
+            <version>${gson.version}</version>
         </dependency>
         <!--CSV Parsers-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
-            <version>1.4</version>
+            <version>${apache.commons.csv.version}</version>
         </dependency>
         <dependency>
             <groupId>net.sf.opencsv</groupId>
             <artifactId>opencsv</artifactId>
-            <version>2.3</version>
+            <version>${opencsv.version}</version>
         </dependency>
         <dependency>
             <groupId>net.sf.supercsv</groupId>
             <artifactId>super-csv</artifactId>
-            <version>2.4.0</version>
+            <version>${supercsv.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -45,6 +53,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.aarexer.java-ex</groupId>
