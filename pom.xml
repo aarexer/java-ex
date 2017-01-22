@@ -10,7 +10,13 @@
     <version>1.0</version>
 
     <developers>
-        <developer>Aleksandr Kuchuk</developer>
+        <developer>
+            <id>aarexer</id>
+            <name>Aleksandr Kuchuk</name>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
     </developers>
 
     <modules>
