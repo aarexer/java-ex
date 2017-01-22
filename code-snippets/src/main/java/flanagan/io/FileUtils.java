@@ -1,13 +1,15 @@
 package flanagan.io;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.FileSystems;
 
-/**
- * Delete file or directory.
- */
 public class FileUtils {
-
+    /**
+     * Delete file or directory.
+     */
     public static boolean delete(String filename) {
         final File file = new File(filename);
 
