@@ -25,6 +25,7 @@
         <module>code-snippets</module>
         <module>groovy-dsl</module>
         <module>tic-tac-toe-game</module>
+        <module>simple-chat</module>
     </modules>
 
     <properties>
