@@ -23,7 +23,6 @@
         <module>utils-ex</module>
         <module>algorithms</module>
         <module>code-snippets</module>
-        <module>groovy-dsl</module>
         <module>tic-tac-toe-game</module>
         <module>simple-chat</module>
     </modules>
@@ -50,6 +49,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
