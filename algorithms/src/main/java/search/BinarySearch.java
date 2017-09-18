@@ -18,7 +18,7 @@ public class BinarySearch {
         if (arr[mid] == element) {
             return true;
         } else if (arr[mid] > element) {
-            return search(arr, element, left, right = mid - 1);
+            return search(arr, element, left, mid - 1);
         } else {
             return search(arr, element, mid + 1, right);
         }
