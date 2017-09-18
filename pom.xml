@@ -25,6 +25,7 @@
         <module>code-snippets</module>
         <module>tic-tac-toe-game</module>
         <module>simple-chat</module>
+        <module>tron-clock</module>
     </modules>
 
     <properties>
