@@ -1,6 +1,6 @@
 package examples;
 
-import java.net.URISyntaxException;
+        import java.net.URISyntaxException;
 
 public class ResourcesTest {
     public static void main(String[] args) throws URISyntaxException {
@@ -22,5 +22,6 @@ public class ResourcesTest {
 
     private static void printURIOfResourceFromStatic() throws URISyntaxException {
         System.out.println(ResourcesTest.class.getClassLoader().getResource("absPath.txt"));
+        System.out.println(ResourcesTest.class.getClassLoader().getResource("examples/relPath.txt"));
     }
 }
