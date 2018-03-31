@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MainApplication extends Application {
     private Pane root;
-    private Tile[][] board = new Tile[3][3];
+    private Tile[][] board = new Tile[Constants.Game.TILES_IN_COLUMN][Constants.Game.TILES_IN_ROW];
     private boolean isXPlayerTurn = true;
     private boolean isPlay = true;
     private List<Combination> combinations = new ArrayList<>();
@@ -45,6 +45,23 @@ public class MainApplication extends Application {
                 Tile tile = new Tile();
                 tile.setTranslateX(j * Constants.MainWindow.TILE_SIZE);
                 tile.setTranslateY(i * Constants.MainWindow.TILE_SIZE);
+                tile.setOnMouseClicked(event -> {
+                    if (isPlay) {
+                        if (event.getButton() == MouseButton.PRIMARY && tile.nonMarked()) {
+                            if (isXPlayerTurn) {
+                                tile.markAsX();
+                                isXPlayerTurn = false;
+                            } else {
+                                tile.markAs0();
+                                isXPlayerTurn = true;
+                            }
+
+                            tile.setMarked();
+                        }
+                        checkCombos();
+                    }
+                });
+
                 board[i][j] = tile;
 
                 root.getChildren().add(tile);
@@ -104,58 +121,6 @@ public class MainApplication extends Application {
         launch(args);
     }
 
-    private class Tile extends StackPane {
-        private Text text;
-        private boolean isMarked;
-
-        public Tile() {
-            Rectangle border = new Rectangle(Constants.MainWindow.TILE_SIZE, Constants.MainWindow.TILE_SIZE);
-            border.setFill(null);
-            border.setStroke(Color.BLACK);
-            text = new Text();
-            text.setFont(Font.font(72));
-
-            setAlignment(Pos.CENTER);
-            getChildren().addAll(border, text);
-
-            setOnMouseClicked(event -> {
-                if (isPlay) {
-                    if (event.getButton() == MouseButton.PRIMARY && !isMarked) {
-                        if (isXPlayerTurn) {
-                            drawX();
-                            isXPlayerTurn = false;
-                        } else {
-                            draw0();
-                            isXPlayerTurn = true;
-                        }
-                        isMarked = true;
-                    }
-                    checkCombos();
-                }
-            });
-        }
-
-        private void drawX() {
-            text.setText("X");
-        }
-
-        private void draw0() {
-            text.setText("0");
-        }
-
-        public String getValue() {
-            return text.getText();
-        }
-
-        public double getTileCentralX() {
-            return getTranslateX() + Constants.MainWindow.TILE_SIZE / 2;
-        }
-
-        public double getTileCentralY() {
-            return getTranslateY() + Constants.MainWindow.TILE_SIZE / 2;
-        }
-    }
-
     private class Combination {
         private Tile[] tiles;
 
@@ -168,7 +133,7 @@ public class MainApplication extends Application {
         }
 
         public boolean isWin() {
-            return tiles[0].isMarked
+            return tiles[0].isMarked()
                     && tiles[0].getValue().equals(tiles[1].getValue())
                     && tiles[0].getValue().equals(tiles[2].getValue());
         }
