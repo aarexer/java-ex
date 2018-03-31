@@ -4,17 +4,12 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -74,11 +69,11 @@ public class MainApplication extends Application {
     }
 
     private void initWinCombinations() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Constants.Game.TILES_IN_COLUMN; i++) {
             combinations.add(new Combination(board[0][i], board[1][i], board[2][i]));
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Constants.Game.TILES_IN_ROW; i++) {
             combinations.add(new Combination(board[i][0], board[i][1], board[i][2]));
         }
 
@@ -87,7 +82,7 @@ public class MainApplication extends Application {
     }
 
     private void checkCombos() {
-        for(Combination combo : combinations) {
+        for (Combination combo : combinations) {
             if (combo.isWin()) {
                 isPlay = false;
                 congratulateWinner(combo);
@@ -98,21 +93,27 @@ public class MainApplication extends Application {
 
     private void congratulateWinner(Combination combo) {
         //for winner animation
-        Line line = new Line();
-        line.setStrokeWidth(15);
-        line.setStroke(Color.RED);
+        Line line = new Line() {
+            {
+                setStrokeWidth(15);
+                setStroke(Color.RED);
+
+                setStartX(combo.getTile(0).getTileCentralX());
+                setStartY(combo.getTile(0).getTileCentralY());
+
+                setEndX(combo.getTile(0).getTileCentralX());
+                setEndY(combo.getTile(0).getTileCentralY());
+            }
+        };
 
         root.getChildren().add(line);
-        line.setStartX(combo.tiles[0].getTileCentralX());
-        line.setStartY(combo.tiles[0].getTileCentralY());
-
-        line.setEndX(combo.tiles[0].getTileCentralX());
-        line.setEndY(combo.tiles[0].getTileCentralY());
 
         Timeline tl = new Timeline();
-        tl.getKeyFrames().add(new KeyFrame(Duration.seconds(5),
-                new KeyValue(line.endXProperty(), combo.tiles[2].getTileCentralX()),
-                new KeyValue(line.endYProperty(), combo.tiles[2].getTileCentralY())));
+        tl.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(5),
+                new KeyValue(line.endXProperty(), combo.getTile(2).getTileCentralX()),
+                new KeyValue(line.endYProperty(), combo.getTile(2).getTileCentralY()))
+        );
 
         tl.play();
     }
@@ -121,21 +122,4 @@ public class MainApplication extends Application {
         launch(args);
     }
 
-    private class Combination {
-        private Tile[] tiles;
-
-        public Combination(Tile... tiles) {
-            if (tiles.length == 3) {
-                this.tiles = tiles;
-            } else {
-                throw new IllegalArgumentException("Too many arguments received!");
-            }
-        }
-
-        public boolean isWin() {
-            return tiles[0].isMarked()
-                    && tiles[0].getValue().equals(tiles[1].getValue())
-                    && tiles[0].getValue().equals(tiles[2].getValue());
-        }
-    }
 }
