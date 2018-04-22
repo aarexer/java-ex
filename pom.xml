@@ -24,7 +24,6 @@
         <module>algorithms</module>
         <module>code-snippets</module>
         <module>tic-tac-toe-game</module>
-        <module>simple-chat</module>
         <module>tron-clock</module>
     </modules>
 
@@ -59,6 +58,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
         </dependency>
         <!--Lombok-->
         <dependency>
