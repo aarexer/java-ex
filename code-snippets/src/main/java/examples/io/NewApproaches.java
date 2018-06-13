@@ -103,7 +103,7 @@ public final class NewApproaches {
      * @param name filename.
      * @throws IOException if error.
      */
-    void readByChunks(String name) throws IOException {
+    static void readByChunks(String name) throws IOException {
         if (Objects.isNull(name)) {
             throw new IllegalArgumentException("Path can't be null");
         }
@@ -130,7 +130,7 @@ public final class NewApproaches {
      * @param name filename.
      * @throws IOException if error.
      */
-    void readByMappedByteBuffer(String name) throws IOException {
+    static void readByMappedByteBuffer(String name) throws IOException {
         try (RandomAccessFile aFile = new RandomAccessFile(name, "r");
              FileChannel inChannel = aFile.getChannel()) {
 
