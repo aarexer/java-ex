@@ -1,4 +1,4 @@
-package aarexer.spring.example;
+package aarexer.spring.example.first;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

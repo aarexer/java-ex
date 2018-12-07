@@ -1,9 +1,11 @@
-package aarexer.spring.example;
+package aarexer.spring.example.first;
+
+import aarexer.spring.example.Quoter;
 
 import javax.annotation.PostConstruct;
 
 @Profiling
-public class TerminatorQuoter implements Qouter {
+public class TerminatorQuoter implements Quoter {
     @InjectRandomInt(min = 0, max = 10)
     private int repeat;
 

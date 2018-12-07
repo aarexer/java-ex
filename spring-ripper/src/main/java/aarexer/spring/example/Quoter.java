@@ -1,5 +1,5 @@
 package aarexer.spring.example;
 
-public interface Qouter {
+public interface Quoter {
     void quote();
 }
