@@ -25,6 +25,7 @@
         <module>code-snippets</module>
         <module>tic-tac-toe-game</module>
         <module>tron-clock</module>
+        <module>spring-ripper</module>
     </modules>
 
     <properties>
