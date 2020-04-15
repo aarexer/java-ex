@@ -35,7 +35,7 @@ public final class HashUtils {
 
         final MessageDigest md = MessageDigest.getInstance("MD5");
         final List<String> content = FileUtils.readLines(file, Charset.forName("UTF-8"));
-        final String forHash = content.stream().collect(Collectors.joining("|"));
+        final String forHash = String.join("|", content);
 
         md.update(forHash.getBytes());
         byte[] digest = md.digest();

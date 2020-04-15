@@ -4,7 +4,7 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.aarexer.java-ex</groupId>
+    <groupId>aarexer.java-ex</groupId>
     <artifactId>java-ex</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
@@ -23,9 +23,9 @@
         <module>utils-ex</module>
         <module>algorithms</module>
         <module>code-snippets</module>
-        <module>tic-tac-toe-game</module>
         <module>tron-clock</module>
         <module>spring-ripper</module>
+        <module>kafka-ex</module>
     </modules>
 
     <properties>

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.aarexer.java-ex</groupId>
+        <groupId>aarexer.java-ex</groupId>
         <artifactId>java-ex</artifactId>
         <version>1.0</version>
     </parent>
