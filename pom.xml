@@ -26,10 +26,11 @@
         <module>tron-clock</module>
         <module>spring-ripper</module>
         <module>kafka-ex</module>
+        <module>jdbc-plain-example</module>
     </modules>
 
     <properties>
-        <lombok.version>1.16.12</lombok.version>
+        <lombok.version>1.18.12</lombok.version>
         <gson.version>2.6.2</gson.version>
         <guava.version>23.0</guava.version>
     </properties>
