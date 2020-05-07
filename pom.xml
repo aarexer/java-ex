@@ -27,6 +27,7 @@
         <module>spring-ripper</module>
         <module>kafka-ex</module>
         <module>jdbc-plain-example</module>
+        <module>template-spring-example</module>
     </modules>
 
     <properties>
